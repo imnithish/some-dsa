@@ -45,6 +45,25 @@ class LinkedList<T : Any> {
         size++
     }
 
+    fun find(value: Int): Node? {
+        var node = head
+        while (node != null) {
+            if (node.value === value) {
+                return node
+            }
+            node = node.next
+        }
+        return null
+    }
+
+    operator fun get(index: Int): Node? {
+        var node = head
+        for (i in 0 until index) {
+            node = node?.next
+        }
+        return node
+    }
+
     fun display() {
         var temp = head
         while (temp != null) {
@@ -54,7 +73,7 @@ class LinkedList<T : Any> {
         println("END")
     }
 
-    private inner class Node(var value: T) {
+    inner class Node(var value: T) {
         var next: Node? = null
 
     }
