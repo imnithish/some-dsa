@@ -16,6 +16,35 @@ class LinkedList<T : Any> {
         size += 1
     }
 
+    fun insertLast(value: T) {
+        if (tail == null) {
+            insertFirst(value)
+            return
+        }
+        val node = Node(value)
+        tail?.next = node
+        tail = node
+        size++
+    }
+
+    fun insert(value: T, index: Int) {
+        if (index == 0) {
+            insertFirst(value)
+            return
+        }
+        if (index == size) {
+            insertLast(value)
+            return
+        }
+        var temp = head
+        for (i in 1 until index) {
+            temp = temp?.next
+        }
+        val node = Node(value)
+        temp?.next = node
+        size++
+    }
+
     fun display() {
         var temp = head
         while (temp != null) {
@@ -25,18 +54,9 @@ class LinkedList<T : Any> {
         println("END")
     }
 
-    private inner class Node {
-        var value: T
+    private inner class Node(var value: T) {
         var next: Node? = null
 
-        constructor(value: T) {
-            this.value = value
-        }
-
-        constructor(value: T, next: Node?) {
-            this.value = value
-            this.next = next
-        }
     }
 }
 
