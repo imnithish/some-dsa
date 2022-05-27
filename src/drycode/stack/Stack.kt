@@ -12,4 +12,5 @@ interface Stack<T : Any> {
 
     val isEmpty: Boolean
         get() = count == 0
+
 }
