@@ -11,3 +11,10 @@ internal class TwoSum {
         return null
     }
 }
+
+internal fun main(){
+    val ts = TwoSum()
+
+ for (i in ts.twoSum(intArrayOf(2,7,11,15), 9)!!)
+     println(i)
+}
